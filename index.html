@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lưu Thanh Mỹ - Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0a66c2;
+            --secondary-color: #0077b5;
+            --text-color: #333;
+            --light-color: #f5f5f5;
+            --dark-color: #2c3e50;
+            --accent-color: #00a0dc;
+            --border-radius: 8px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 0;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .profile {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .profile h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(5px);
+        }
+
+        .contact-info p {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info i {
+            width: 25px;
+            margin-right: 10px;
+        }
+
+        main {
+            padding: 40px 0;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+        }
+
+        .card h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .card h2 i {
+            margin-right: 15px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.5rem;
+        }
+
+        .objective p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .skills ul, .education ul, .experience ul {
+            list-style-type: none;
+            padding-left: 10px;
+        }
+
+        .skills li, .education li, .experience li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .skills li::before, .education li::before, .experience li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+        }
+
+        .experience h3 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .experience p {
+            margin-bottom: 15px;
+        }
+
+        .education h3 {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        .education p {
+            margin-bottom: 5px;
+        }
+
+        .future-goals {
+            background: linear-gradient(135deg, var(--dark-color), #34495e);
+            color: white;
+        }
+
+        .future-goals h2 {
+            color: white;
+        }
+
+        .future-goals h2 i {
+            background: linear-gradient(135deg, #ffffff, #e0e0e0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .timeline {
+            position: relative;
+            margin-top: 20px;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-color);
+            background-color: var(--dark-color);
+        }
+
+        .timeline-year {
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+
+        .salary {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .recommendations {
+            background: linear-gradient(135deg, #f6f9fc, #edf2f7);
+        }
+
+        .two-columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .column {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .quote {
+            position: relative;
+            background-color: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .quote::before {
+            content: '\201C';
+            font-size: 4rem;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            color: var(--primary-color);
+            opacity: 0.2;
+        }
+
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(10, 102, 194, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(10, 102, 194, 0.4);
+        }
+
+        /* Responsive Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            animation: fadeIn 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
+        .card:nth-child(6) { animation-delay: 0.6s; }
+
+        /* Progress Bar */
+        .progress-container {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 30px;
+            margin: 10px 0 20px;
+            height: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            border-radius: 30px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            width: 0;
+            transition: width 1s ease-in-out;
+        }
+
+        /* Floating shapes decoration */
+        .shape {
+            position: absolute;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .shape-1 {
+            top: 20%;
+            right: 10%;
+            width: 100px;
+            height: 100px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            background-color: var(--accent-color);
+            animation: float 8s infinite ease-in-out;
+        }
+
+        .shape-2 {
+            bottom: 10%;
+            left: 5%;
+            width: 150px;
+            height: 150px;
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            background-color: var(--primary-color);
+            animation: float 10s infinite ease-in-out reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(10px, -15px) rotate(5deg); }
+            50% { transform: translate(0, 10px) rotate(0deg); }
+            75% { transform: translate(-10px, -5px) rotate(-5deg); }
+        }
+
+        /* Certificate Styles */
+        .certificate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .certificate-item {
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .certificate-item h3 {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .certificate-item ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .certificate-item li {
+            margin-bottom: 20px;
+            padding-left: 0;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 15px;
+        }
+
+        .certificate-item li::before {
+            display: none;
+        }
+
+        .cert-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 5px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .cert-details span {
+            background-color: rgba(10, 102, 194, 0.08);
+            padding: 3px 8px;
+            border-radius: 15px;
+        }
+
+        .cert-details i {
+            margin-right: 5px;
+        }
+            .header-content {
+                flex-direction: column;
+            }
+
+            .profile, .contact-info {
+                width: 100%;
+            }
+
+            .profile h1 {
+                font-size: 2.2rem;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .card h2 {
+                font-size: 1.5rem;
+            }
+
+            .timeline {
+                padding-left: 20px;
+            }
+
+            .timeline-item::before {
+                left: -24px;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background-color: white;
+            }
+
+            .card {
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+
+            .btn, footer {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="profile">
+                <h1>LƯU THANH MỸ</h1>
+                <p>Chuyên ngành: Trí tuệ nhân tạo | Sinh viên năm cuối</p>
+            </div>
+            <div class="contact-info">
+                <p><i class="fas fa-birthday-cake"></i> Ngày sinh: 19/01/2003</p>
+                <p><i class="fas fa-map-marker-alt"></i> Quê quán: Thôn Trung Hậu, xã Mỹ Chánh Tây, huyện Phù Mỹ, tỉnh Bình Định</p>
+                <p><i class="fas fa-home"></i> Địa chỉ: 58, Nguyễn Hữu Cảnh, Đông Hoà, Dĩ An, Bình Dương</p>
+                <p><i class="fas fa-envelope"></i> Email: data97688@gmail.com</p>
+                <p><i class="fas fa-phone-alt"></i> Zalo: <a href="https://zalo.me/0823976658" style="color: white; text-decoration: underline;">0823976658</a></p>
+                <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://linkedin.com/in/mỹ-lưu-thanh-49216a343/" style="color: white; text-decoration: underline;">Mỹ Lưu Thanh</a></p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+
+        <section class="card objective">
+            <h2><i class="fas fa-crosshairs"></i> MỤC TIÊU NGHỀ NGHIỆP</h2>
+            <p>Là sinh viên năm cuối với niềm đam mê sâu sắc trong việc áp dụng công nghệ vào thực tiễn và phục vụ cộng đồng, tôi mong muốn tìm kiếm cơ hội để phát triển chuyên môn kỹ thuật, đặc biệt trong mảng AI và các hệ thống tự động. Mục tiêu của tôi trong 3-5 năm tới là trở thành chuyên gia kỹ thuật, hỗ trợ cộng đồng và góp phần tạo ra những sản phẩm ý nghĩa, cải thiện đời sống và công việc của con người.</p>
+        </section>
+
+        <section class="card skills">
+            <h2><i class="fas fa-laptop-code"></i> KỸ NĂNG & NĂNG LỰC</h2>
+            <ul>
+                <li>
+                    <strong>Kỹ thuật và công nghệ:</strong> Lập và quản lý các lớp học tự động, ứng dụng công nghệ để tối ưu hóa quá trình học tập và quản lý chất lượng học viên.
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 85%;"></div>
+                    </div>
+                </li>
+                <li>
+                    <strong>Quản lý dự án:</strong> Lập kế hoạch và triển khai các dự án kỹ thuật dưới áp lực cao, khả năng làm việc độc lập và đội nhóm.
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 80%;"></div>
+                    </div>
+                </li>
+                <li>
+                    <strong>Phân tích và giải quyết vấn đề:</strong> Có khả năng phân tích tình huống, tìm ra giải pháp tối ưu và thực hiện các cải tiến liên tục trong công việc.
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 90%;"></div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="card certificates">
+            <h2><i class="fas fa-certificate"></i> CHỨNG CHỈ & GIẤY PHÉP</h2>
+            <div class="certificate-grid">
+                <div class="certificate-item">
+                    <h3>Microsoft & AI</h3>
+                    <ul>
+                        <li>
+                            <strong>Introduction to Microsoft 365 Copilot</strong>
+                            <div class="cert-details">
+                                <span><i class="fas fa-building"></i> Microsoft</span>
+                                <span><i class="fas fa-calendar-alt"></i> Tháng 01/2025</span>
+                                <span><i class="fas fa-id-card"></i> ID: 71VACAFG5E5I</span>
+                            </div>
+                        </li>
+                        <li>
+                            <strong>Microsoft 365 Copilot: Personal Productivity for All</strong>
+                            <div class="cert-details">
+                                <span><i class="fas fa-university"></i> Vanderbilt University</span>
+                                <span><i class="fas fa-calendar-alt"></i> Tháng 01/2025</span>
+                                <span><i class="fas fa-id-card"></i> ID: N6L9L0GEOZ6V</span>
+                            </div>
+                        </li>
+                        <li>
+                            <strong>Copilot Best Practices, Ethics and Regulatory Implications</strong>
+                            <div class="cert-details">
+                                <span><i class="fas fa-building"></i> Microsoft</span>
+                                <span><i class="fas fa-calendar-alt"></i> Tháng 01/2025</span>
+                                <span><i class="fas fa-id-card"></i> ID: ZFNG4BK04IEL</span>
+                            </div>
+                        </li>
+                        <li>
+                            <strong>Copilot for Beginners: Create a Powerpoint Presentation</strong>
+                            <div class="cert-details">
+                                <span><i class="fas fa-graduation-cap"></i> Coursera Project Network</span>
+                                <span><i class="fas fa-calendar-alt"></i> Tháng 02/2025</span>
+                                <span><i class="fas fa-id-card"></i> ID: J7FZZLUQXGCP</span>
+                            </div>
+                        </li>
+                        <li>
+                            <strong>Copilot for Beginners: Create a Sales Pitch Presentation</strong>
+                            <div class="cert-details">
+                                <span><i class="fas fa-graduation-cap"></i> Coursera Project Network</span>
+                                <span><i class="fas fa-calendar-alt"></i> Tháng 02/2025</span>
+                                <span><i class="fas fa-id-card"></i> ID: 1QJ269FUADRD</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="certificate-item">
+                    <h3>Hỗ trợ kỹ thuật & Mạng</h3>
+                    <ul>
+                        <li>
+                            <strong>Technical Support Fundamentals</strong>
+                            <div class="cert-details">
+                                <span><i class="fas fa-building"></i> Google</span>
+                                <span><i class="fas fa-calendar-alt"></i> Tháng 02/2025</span>
+                                <span><i class="fas fa-id-card"></i> ID: RF9RONWLIQM8</span>
+                            </div>
+                        </li>
+                        <li>
+                            <strong>Introduction to Technical Support</strong>
+                            <div class="cert-details">
+                                <span><i class="fas fa-building"></i> IBM</span>
+                                <span><i class="fas fa-calendar-alt"></i> Tháng 02/2025</span>
+                                <span><i class="fas fa-id-card"></i> ID: CZBJ4JDO0JPZ</span>
+                            </div>
+                        </li>
+                        <li>
+                            <strong>Technical Support (IT) Case Studies and Capstone</strong>
+                            <div class="cert-details">
+                                <span><i class="fas fa-building"></i> IBM</span>
+                                <span><i class="fas fa-calendar-alt"></i> Tháng 02/2025</span>
+                                <span><i class="fas fa-id-card"></i> ID: W0VMNT2UNVF4</span>
+                            </div>
+                        </li>
+                        <li>
+                            <strong>The Bits and Bytes of Computer Networking</strong>
+                            <div class="cert-details">
+                                <span><i class="fas fa-building"></i> Google</span>
+                                <span><i class="fas fa-calendar-alt"></i> Tháng 02/2025</span>
+                                <span><i class="fas fa-id-card"></i> ID: PV4MSEUKZ11R</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="certificate-item">
+                    <h3>Làm việc từ xa & Công nghệ ứng dụng</h3>
+                    <ul>
+                        <li>
+                            <strong>Leadership in Remote Work</strong>
+                            <div class="cert-details">
+                                <span><i class="fas fa-university"></i> University of California, Irvine</span>
+                                <span><i class="fas fa-calendar-alt"></i> Tháng 01/2025</span>
+                                <span><i class="fas fa-id-card"></i> ID: E7PVCOPTLKZZ</span>
+                            </div>
+                        </li>
+                        <li>
+                            <strong>Productivity in Remote Work</strong>
+                            <div class="cert-details">
+                                <span><i class="fas fa-university"></i> University of California, Irvine</span>
+                                <span><i class="fas fa-calendar-alt"></i> Tháng 01/2025</span>
+                                <span><i class="fas fa-id-card"></i> ID: D0SUIGP3BH56</span>
+                            </div>
+                        </li>
+                        <li>
+                            <strong>Build a mobile app with Google Sheets on Glide and no coding</strong>
+                            <div class="cert-details">
+                                <span><i class="fas fa-graduation-cap"></i> Coursera Project Network</span>
+                                <span><i class="fas fa-calendar-alt"></i> Tháng 12/2024</span>
+                                <span><i class="fas fa-id-card"></i> ID: MNWAV5X3OOJ1</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="card experience">
+            <h2><i class="fas fa-briefcase"></i> KINH NGHIỆM LÀM VIỆC</h2>
+            <h3>Nhân viên Kỹ thuật Part-time — Hỗ trợ mảng kĩ thuật team</h3>
+            <ul>
+                <li>Xây dựng và quản lý các lớp học tự động, bao gồm điểm danh tự động và kiểm soát chất lượng học viên.</li>
+                <li>Hỗ trợ các dự án công nghệ, nghiên cứu và phát triển giải pháp cải tiến quy trình làm việc.</li>
+            </ul>
+        </section>
+
+        <section class="card education">
+            <h2><i class="fas fa-graduation-cap"></i> HỌC VẤN</h2>
+            <h3>Đại Học Công nghệ Thành Phố Hồ CHí Minh (Hutech)</h3>
+            <p>Chuyên ngành: Trí tuệ nhân tạo | 2021 - 2025</p>
+            <p>Dự kiến tốt nghiệp năm 2025</p>
+            <ul>
+                <li>Các môn học chính: Ứng dụng AI vào trong công việc</li>
+            </ul>
+        </section>
+
+        <section class="card future-goals">
+            <h2><i class="fas fa-rocket"></i> MỤC TIÊU TƯƠNG LAI</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2025</div>
+                    <p>Ra trường và hỗ trợ cộng đồng qua các dự án công nghệ, đặc biệt trong lĩnh vực AI.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2026</div>
+                    <p>Tiếp tục học và ứng dụng AI vào các sản phẩm hỗ trợ cộng đồng.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2027</div>
+                    <p>Xây dựng nền tảng vững chắc cho một dự án ngân hàng toàn năng, phục vụ lâu dài cho xã hội.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="two-columns">
+            <div class="column">
+                <section class="card recommendations">
+                    <h2><i class="fas fa-clipboard-list"></i> KHUYẾN NGHỊ</h2>
+                    <ul>
+                        <li>Mong muốn làm việc trong môi trường linh hoạt, làm việc online với thời gian khoảng 4 giờ/ngày.</li>
+                        <li>Thích hợp tác trong không gian yên tĩnh, đầy đủ tiện nghi để đạt hiệu quả công việc cao nhất.</li>
+                    </ul>
+                </section>
+            </div>
+            <div class="column">
+                <section class="card">
+                    <h2><i class="fas fa-handshake"></i> LÝ DO HỢP TÁC</h2>
+                    <div class="quote">
+                        <p>Với niềm tin và nhiệt huyết trong công việc, tôi cam kết sẽ cống hiến hết mình, học hỏi từ đồng nghiệp và cấp trên để phát triển bản thân và đóng góp vào sự thành công chung. Nếu có thể, tôi mong muốn được hỗ trợ trong việc học hỏi và thực hành các công nghệ tiên tiến như big data và AI để phục vụ cho dự án trong tương lai.</p>
+                    </div>
+                    <div style="display: flex; gap: 15px; margin-top: 20px;">
+                        <a href="https://zalo.me/0823976658" class="btn">Liên hệ qua Zalo</a>
+                        <a href="https://linkedin.com/in/mỹ-lưu-thanh-49216a343/" class="btn" style="background: linear-gradient(135deg, #0077b5, #00a0dc);">Kết nối LinkedIn</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Lưu Thanh Mỹ - CV Portfolio</p>
+        </div>
+    </footer>
+
+    <script>
+        // Animation for progress bars
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate progress bars when they come into view
+            const progressBars = document.querySelectorAll('.progress-bar');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const width = entry.target.style.width;
+                        entry.target.style.width = '0';
+                        setTimeout(() => {
+                            entry.target.style.width = width;
+                        }, 200);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            progressBars.forEach(bar => {
+                observer.observe(bar);
+            });
+        });
+    </script>
+</body>
+</html>
